@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -15,7 +15,8 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -29,6 +30,8 @@
   "author": "ildar",
   "module": "dist/react-libraries.esm.js",
   "devDependencies": {
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
     "@testing-library/react-hooks": "^3.3.0",
     "@types/lodash": "^4.14.155",
     "@types/react": "^16.9.36",
@@ -38,11 +41,16 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
+    "semantic-release": "^17.2.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
     "lodash": "^4.17.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ildar-icoosoft/react-libraries.git"
   }
 }
