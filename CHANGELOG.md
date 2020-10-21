@@ -5,6 +5,13 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
  and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.2.0](https://github.com/ildar-icoosoft/react-libraries/compare/v1.1.1...v1.2.0) (2020-10-21)
+
+
+### Features
+
+* REACTLIBRARIES-5 add useDeepEqualSelector, useShallowEqualSelector hooks ([#9](https://github.com/ildar-icoosoft/react-libraries/issues/9)) ([ac53063](https://github.com/ildar-icoosoft/react-libraries/commit/ac53063e388552919be6806a3cd18e69d21a935b))
+
 ## [1.1.1](https://github.com/ildar-icoosoft/react-libraries/compare/v1.1.0...v1.1.1) (2020-10-20)
 
 
