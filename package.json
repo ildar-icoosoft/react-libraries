@@ -19,7 +19,8 @@
     "semantic-release": "semantic-release"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16",
+    "react-redux": "^7.2.1"
   },
   "husky": {
     "hooks": {
@@ -36,10 +37,12 @@
     "@types/lodash": "^4.14.155",
     "@types/react": "^16.9.36",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "@types/react-test-renderer": "^16.9.2",
     "husky": "^4.2.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.1",
     "react-test-renderer": "^16.13.1",
     "semantic-release": "^17.2.1",
     "tsdx": "^0.13.2",
