@@ -2,6 +2,8 @@ import { renderHook } from "@testing-library/react-hooks";
 import { useSelector } from "react-redux";
 import { useDeepEqualSelector } from "../useDeepEqualSelector";
 
+jest.mock("react-redux");
+
 interface RenderProps {
   selector: jest.Mock;
   customizer?: jest.Mock;
