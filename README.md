@@ -1,3 +1,14 @@
+<h1 align="center">react-libraries</h1>
+
+<div align="center">
+
+A collection of useful react libraries
+
+![CI](https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg)
+![Semantic Release](https://github.com/ildar-icoosoft/react-libraries/workflows/Semantic%20Release/badge.svg)
+
+</div>
+
 # TSDX React User Guide
 
 Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
