@@ -6,6 +6,7 @@ A collection of useful react libraries
 
 ![CI](https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg)
 ![Semantic Release](https://github.com/ildar-icoosoft/react-libraries/workflows/Semantic%20Release/badge.svg)
+[![codecov](https://codecov.io/gh/ildar-icoosoft/react-libraries/branch/master/graph/badge.svg?token=G34ATTWUCT)](https://codecov.io/gh/ildar-icoosoft/react-libraries)
 
 </div>
 
