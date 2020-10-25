@@ -24,12 +24,12 @@ At the moment, the library contains several react hooks. In future releases it i
 - Usage
   - [Installation](#installation)
 - Hooks
-  - [useCombinedRefs](#useCombinedRefs)
-  - [usePrevious](#usePrevious)
-  - [usePreviousDifferent](#usePreviousDifferent)
-  - [useCombinedRefs](#useCombinedRefs)
-  - [useShallowEqualSelector](#useShallowEqualSelector)
-  - [useDeepEqualSelector](#useDeepEqualSelector)
+  - [useCombinedRefs](#usecombinedrefs)
+  - [usePrevious](#useprevious)
+  - [usePreviousDifferent](#usepreviousdifferent)
+  - [useCombinedRefs](#usecombinedrefs)
+  - [useShallowEqualSelector](#useshallowequalselector)
+  - [useDeepEqualSelector](#usedeepequalselector)
   
 ## Installation
 
