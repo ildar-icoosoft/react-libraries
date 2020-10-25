@@ -1,14 +1,19 @@
 <h1 align="center">react-libraries</h1>
 
-<div align="center">
+<p align="center">
 
 A collection of useful react libraries
 
-![CI](https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg)
-![Semantic Release](https://github.com/ildar-icoosoft/react-libraries/workflows/Semantic%20Release/badge.svg)
-[![codecov](https://codecov.io/gh/ildar-icoosoft/react-libraries/branch/master/graph/badge.svg?token=G34ATTWUCT)](https://codecov.io/gh/ildar-icoosoft/react-libraries)
+</p>
 
-</div>
+<p align="center">
+
+![CI](https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/ildar-icoosoft/react-libraries/branch/master/graph/badge.svg?token=G34ATTWUCT)](https://codecov.io/gh/ildar-icoosoft/react-libraries)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![npm](https://img.shields.io/npm/v/ii-react-libraries)](https://www.npmjs.com/package/ii-react-libraries)
+
+</p>
 
 # TSDX React User Guide
 
