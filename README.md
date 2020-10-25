@@ -1,18 +1,22 @@
 <h1 align="center">react-libraries</h1>
 
-<p align="center">
+<h3 align="center">
 
 A collection of useful react libraries
 
-</p>
+</h3>
 
 <p align="center">
-
-![CI](https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg)
-[![codecov](https://codecov.io/gh/ildar-icoosoft/react-libraries/branch/master/graph/badge.svg?token=G34ATTWUCT)](https://codecov.io/gh/ildar-icoosoft/react-libraries)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![npm](https://img.shields.io/npm/v/ii-react-libraries)](https://www.npmjs.com/package/ii-react-libraries)
-
+    <img alt="CI" src="https://github.com/ildar-icoosoft/react-libraries/workflows/CI/badge.svg">
+    <a href="https://codecov.io/gh/ildar-icoosoft/react-libraries">
+        <img alt="codecov" src="https://codecov.io/gh/ildar-icoosoft/react-libraries/branch/master/graph/badge.svg?token=G34ATTWUCT">
+    </a>
+    <a href="https://github.com/semantic-release/semantic-release">
+        <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+    </a>
+    <a href="https://www.npmjs.com/package/ii-react-libraries">
+        <img alt="semantic-release" src="https://img.shields.io/npm/v/ii-react-libraries">
+    </a>
 </p>
 
 # TSDX React User Guide
