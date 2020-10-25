@@ -27,7 +27,6 @@ At the moment, the library contains several react hooks. In future releases it i
   - [useCombinedRefs](#usecombinedrefs)
   - [usePrevious](#useprevious)
   - [usePreviousDifferent](#usepreviousdifferent)
-  - [useCombinedRefs](#usecombinedrefs)
   - [useShallowEqualSelector](#useshallowequalselector)
   - [useDeepEqualSelector](#usedeepequalselector)
   
