@@ -104,9 +104,7 @@ Like [usePrevious](#usePrevious), but returns previous value, different from the
 
 ### useShallowEqualSelector 
 
-Allows you to extract data from the Redux store state, using a selector function.
-React-redux hook [useSelector()](https://react-redux.js.org/api/hooks#useselector) uses strict === reference equality checks by default.
-`useShallowEqualSelector()` uses shallow equality.
+This hook uses [useSelector()](https://react-redux.js.org/api/hooks#useselector) with shallow equality.
  
 It is shortcut for this code:
 
