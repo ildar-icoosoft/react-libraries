@@ -101,7 +101,7 @@ function App() {
   // Display both current and previous count value
   return (
     <div>
-      <h1>Now: {count}, before: {prevCount}</h1>
+      <div>Now: {count}, before: {prevCount}</div>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
    );
