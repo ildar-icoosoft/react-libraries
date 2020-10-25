@@ -5,6 +5,13 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
  and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.4](https://github.com/ildar-icoosoft/react-libraries/compare/v1.3.3...v1.3.4) (2020-10-25)
+
+
+### Bug Fixes
+
+* anchor links in readme ([#17](https://github.com/ildar-icoosoft/react-libraries/issues/17)) ([e82a422](https://github.com/ildar-icoosoft/react-libraries/commit/e82a422047e0480942f1efc405712009659dadf8))
+
 ## [1.3.3](https://github.com/ildar-icoosoft/react-libraries/compare/v1.3.2...v1.3.3) (2020-10-25)
 
 
