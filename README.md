@@ -39,6 +39,10 @@ npm install ii-react-libraries # or yarn add ii-react-libraries
 
 ### useCombinedRefs
 
+```javascript
+const ref = useCombinedRefs(...refs)
+```
+
 Merges refs into one ref. Useful when you need to bind more than one ref to DOM element.
 
 Usage example:
@@ -65,6 +69,10 @@ function App() {
 ```  
 
 ### usePrevious 
+
+```javascript
+const prevValue = usePrevious(initialValue);
+```
 
 One question that comes up a lot is "When using hooks how do I get the previous value of props or state?". 
 With React class components you have the componentDidUpdate method which receives previous props and state
@@ -100,9 +108,17 @@ function App() {
 
 ### usePreviousDifferent 
 
+```javascript
+const prevDifferentValue = usePreviousDifferent(initialValue);
+```
+
 Like [usePrevious](#usePrevious), but returns previous value, different from the current
 
 ### useShallowEqualSelector 
+
+```javascript
+const result = useShallowEqualSelector(selector);
+```
 
 This hook uses [useSelector()](https://react-redux.js.org/api/hooks#useselector) with shallow equality.
  
@@ -123,6 +139,10 @@ useShallowEqualSelector(selector);
 ```
 
 ### useDeepEqualSelector
+
+```javascript
+const result = useDeepEqualSelector(selector[, customizer])
+```
 
 This hook uses [useSelector()](https://react-redux.js.org/api/hooks#useselector) with deep equality.
 For comparison function Lodash's [_.isEqualWith()](https://lodash.com/docs/4.17.15#isEqualWith) is used.
