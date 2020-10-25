@@ -19,170 +19,131 @@ A collection of useful react libraries
     </a>
 </p>
 
-# TSDX React User Guide
-
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
-
-> This TSDX setup is meant for developing React components (not apps!) that can be published to NPM. If you’re looking to build an app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
-
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
-
-## Commands
-
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
-
-The recommended workflow is to run TSDX in one terminal:
+- Usage
+  - [Installation](#installation)
+- Hooks
+  - [useCombinedRefs](#useCombinedRefs)
+  - [usePrevious](#usePrevious)
+  - [usePreviousDifferent](#usePreviousDifferent)
+  - [useCombinedRefs](#useCombinedRefs)
+  - [useShallowEqualSelector](#useShallowEqualSelector)
+  - [useDeepEqualSelector](#useDeepEqualSelector)
+  
+## Installation
 
 ```bash
-npm start # or yarn start
-```
+npm install ii-react-libraries # or yarn add ii-react-libraries
+```  
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
+## Hooks
 
-Then run the example inside another:
+### useCombinedRefs
 
-```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
-```
+Merges refs into one ref. Useful when you need to bind more than one ref to DOM element.
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, [we use Parcel's aliasing](https://github.com/palmerhq/tsdx/pull/88/files).
+Usage example:
 
-To do a one-off build, use `npm run build` or `yarn build`.
+```JSX
+import { useCombinedRefs } from "ii-react-libraries";
+import { useDrag, useDrop } from "react-dnd";
 
-To run tests, use `npm test` or `yarn test`.
+function App() {
+  const domRef = useRef(null);
 
-## Configuration
+  const [, dragRef] = useDrag({
+    // ...
+  });
 
-Code quality is [set up for you](https://github.com/palmerhq/tsdx/pull/45/files) with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
+  const [, dropRef] = useDrop({
+    // ...
+  });
 
-### Jest
+  return (
+    <div ref={useCombinedRefs(domRef, dragRef, dropRef)}></div>
+  );
+}
+```  
 
-Jest tests are set up to run with `npm test` or `yarn test`. This runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
+### usePrevious 
 
-#### Setup Files
+One question that comes up a lot is "When using hooks how do I get the previous value of props or state?". 
+With React class components you have the componentDidUpdate method which receives previous props and state
+as arguments or you can update an instance variable (this.previous = value) and reference it later to get
+the previous value. So how can we do this inside a functional component that doesn't have lifecycle methods
+or an instance to store values on? Hooks to the rescue! We can create a custom hook that uses the useRef hook
+internally for storing the previous value. See the recipe below with inline comments. You can also find this
+example in the official [React Hooks FAQ](https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state).
 
-This is the folder structure we set up for you:
+Usage example:
 
-```shell
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
-```
+```JSX
+import { useState, useEffect, useRef } from 'react';
+import { usePrevious } from "ii-react-libraries";
 
-#### React Testing Library
-
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
-
-### Rollup
-
-TSDX uses [Rollup v1.x](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
-
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### Travis
-
-_to be completed_
-
-### Circle
-
-_to be completed_
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
+// Usage
+function App() {
+  // State value and setter for our example
+  const [count, setCount] = useState(0);
+  
+  // Get the previous value (was passed into hook on last render)
+  const prevCount = usePrevious(count);
+  
+  // Display both current and previous count value
+  return (
+    <div>
+      <h1>Now: {count}, before: {prevCount}</h1>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+   );
 }
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
+### usePreviousDifferent 
 
-## Module Formats
+Like [usePrevious](#usePrevious), but returns previous value, different from the current
 
-CJS, ESModules, and UMD module formats are supported.
+### useShallowEqualSelector 
 
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
+Allows you to extract data from the Redux store state, using a selector function.
+React-redux hook [useSelector()](https://react-redux.js.org/api/hooks#useselector) uses strict === reference equality checks by default.
+`useShallowEqualSelector()` uses shallow equality.
+ 
+It is shortcut for this code:
 
-## Using the Playground
+```JSX
+import { useSelector, shallowEqual } from "react-redux";
 
-```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
+useSelector(selector, shallowEqual);
 ```
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**!
+Usage example:
 
-## Deploying the Playground
+```JSX
+import { useShallowEqualSelector } from "ii-react-libraries";
 
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
-
-```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
+useShallowEqualSelector(selector);
 ```
 
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
+### useDeepEqualSelector
 
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
+This hook uses [useSelector()](https://react-redux.js.org/api/hooks#useselector) with deep equality.
+For comparison function Lodash's [_.isEqualWith()](https://lodash.com/docs/4.17.15#isEqualWith) is used.
+You can pass optional customizer parameter which is invoked to compare values. If customizer returns undefined, comparisons are handled by the method instead. The customizer is invoked with up to six arguments: (objValue, othValue [, index|key, object, other, stack]).
+
+Usage example:
+  
+```JSX
+import { useDeepEqualSelector } from "ii-react-libraries";
+
+function isGreeting(value) {
+  return /^h(?:i|ello)$/.test(value);
+}
+
+function customizer(objValue, othValue) {
+  if (isGreeting(objValue) && isGreeting(othValue)) {
+    return true;
+  }
+}
+
+useDeepEqualSelector(selector, customizer);
 ```
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
-```
-
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
