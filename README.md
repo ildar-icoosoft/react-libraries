@@ -19,6 +19,8 @@ A collection of useful react libraries
     </a>
 </p>
 
+At the moment, the library contains several react hooks. In future releases it is planned to add useful components and helper functions.
+
 - Usage
   - [Installation](#installation)
 - Hooks
