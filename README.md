@@ -15,7 +15,7 @@ A collection of useful react libraries
         <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
     </a>
     <a href="https://www.npmjs.com/package/ii-react-libraries">
-        <img alt="semantic-release" src="https://img.shields.io/npm/v/ii-react-libraries">
+        <img alt="npm" src="https://img.shields.io/npm/v/ii-react-libraries">
     </a>
 </p>
 
