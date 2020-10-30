@@ -1,8 +1,10 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { useSelector } from "react-redux";
+import { isEqualWith } from "lodash";
 import { useDeepEqualSelector } from "../useDeepEqualSelector";
 
 jest.mock("react-redux");
+jest.mock("lodash");
 
 interface RenderProps {
   selector: jest.Mock;
@@ -17,7 +19,14 @@ it("useDeepEqualSelector()", () => {
 
   const useSelectorFn = useSelector as jest.Mock;
 
-  useSelectorFn.mockReturnValueOnce(useSelectorReturnedValue);
+  const left = Symbol("left");
+  const right = Symbol("right");
+
+  useSelectorFn.mockImplementationOnce((_selector, equalityFn) => {
+    equalityFn(left, right);
+
+    return useSelectorReturnedValue;
+  });
 
   const { result } = renderHook<RenderProps, unknown>(
     ({ selector, customizer }) => useDeepEqualSelector(selector, customizer),
@@ -34,5 +43,8 @@ it("useDeepEqualSelector()", () => {
   expect(useSelectorFn).toBeCalledTimes(1);
   expect(useSelectorFn).toBeCalledWith(selectorFn, expect.anything());
 
-  // @todo. need to test that isEqualWith() is called inside useSelector() callback
+  const isEqualWithFn = isEqualWith as jest.Mock;
+
+  expect(isEqualWithFn).toBeCalledTimes(1);
+  expect(isEqualWithFn).toBeCalledWith(left, right, customerFn);
 });
