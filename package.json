@@ -44,7 +44,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-test-renderer": "^16.13.1",
-    "semantic-release": "^17.2.1",
+    "semantic-release": "^19.0.3",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.5"
